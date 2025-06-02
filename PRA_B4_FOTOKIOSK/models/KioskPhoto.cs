@@ -8,9 +8,8 @@ namespace PRA_B4_FOTOKIOSK.models
 {
     public class KioskPhoto
     {
-
         public int Id { get; set; }
         public string Source { get; set; }
-
+        public DateTime Tijd { get; set; }
     }
 }

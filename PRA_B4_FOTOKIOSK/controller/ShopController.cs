@@ -89,7 +89,7 @@ namespace PRA_B4_FOTOKIOSK.controller
 
                 // Map "bonnen" in Documenten
                 string rootPad = AppDomain.CurrentDomain.BaseDirectory;
-                string mapPad = Path.Combine(rootPad, "bonnen");
+                string mapPad = Path.Combine(rootPad, "../../../bonnen");
                 Directory.CreateDirectory(mapPad);
 
 
