@@ -9,19 +9,16 @@ namespace PRA_B4_FOTOKIOSK.controller
 {
     public class SearchController
     {
-        // Instance property voor Home window, wordt via constructor ingesteld
         public Home Window { get; set; }
 
-        // Constructor met window-parameter
         public SearchController(Home window)
         {
             Window = window;
         }
 
-        // Lege Start methode zodat Home.xaml.cs die kan aanroepen zonder fout
         public void Start()
         {
-            // Eventuele initialisatiecode hier, nu leeg
+            // Indien nodig init
         }
 
         public void SearchButtonClick()
@@ -87,9 +84,19 @@ namespace PRA_B4_FOTOKIOSK.controller
 
                                     if (fotoTijd >= zoekStart && fotoTijd <= zoekEind)
                                     {
+                                        int fotoId = 0;
+                                        foreach (string deel in tijdDelen)
+                                        {
+                                            if (deel.StartsWith("id") && int.TryParse(deel.Substring(2), out int parsedId))
+                                            {
+                                                fotoId = parsedId;
+                                                break;
+                                            }
+                                        }
+
                                         gevondenFotos.Add(new KioskPhoto
                                         {
-                                            Id = 0,
+                                            Id = fotoId,
                                             Source = file,
                                             Tijd = fotoTijd
                                         });
@@ -102,11 +109,12 @@ namespace PRA_B4_FOTOKIOSK.controller
 
                 if (gevondenFotos.Any())
                 {
-                    string pad = gevondenFotos.First().Source;
-                    if (File.Exists(pad))
+                    var foto = gevondenFotos.First();
+                    if (File.Exists(foto.Source))
                     {
-                        SearchManager.SetPicture(pad);
-                        SearchManager.SetSearchImageInfo($"Foto gevonden: {pad}");
+                        SearchManager.SetPicture(foto.Source);
+                        string info = $"📸 Foto-informatie:\n- ID: {foto.Id}\n- Tijd: {foto.Tijd:HH:mm:ss}\n- Datum: {foto.Tijd:dd-MM-yyyy}";
+                        SearchManager.SetSearchImageInfo(info);
                     }
                     else
                     {
