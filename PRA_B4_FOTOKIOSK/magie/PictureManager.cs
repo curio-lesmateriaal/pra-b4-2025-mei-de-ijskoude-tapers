@@ -5,6 +5,7 @@ using System.IO;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using System.Windows;
+using System.Linq;
 
 namespace PRA_B4_FOTOKIOSK.magie
 {
