@@ -1,4 +1,4 @@
-﻿using PRA_B4_FOTOKIOSK.controller;
+using PRA_B4_FOTOKIOSK.controller;
 using PRA_B4_FOTOKIOSK.magie;
 using PRA_B4_FOTOKIOSK.models;
 using System;

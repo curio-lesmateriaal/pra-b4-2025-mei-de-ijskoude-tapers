@@ -1,4 +1,4 @@
-﻿using PRA_B4_FOTOKIOSK.magie;
+using PRA_B4_FOTOKIOSK.magie;
 using PRA_B4_FOTOKIOSK.models;
 using System;
 using System.Collections.Generic;
@@ -88,8 +88,10 @@ namespace PRA_B4_FOTOKIOSK.controller
                 string bonTekst = ShopManager.GetShopReceipt();
 
                 // Map "bonnen" in Documenten
-                string mapPad = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "bonnen");
+                string rootPad = AppDomain.CurrentDomain.BaseDirectory;
+                string mapPad = Path.Combine(rootPad, "bonnen");
                 Directory.CreateDirectory(mapPad);
+
 
                 // Bestandsnaam met timestamp
                 string bestandsNaam = $"Bon_{DateTime.Now:yyyyMMdd_HHmmss}.txt";
