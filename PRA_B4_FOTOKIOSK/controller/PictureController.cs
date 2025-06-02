@@ -11,6 +11,11 @@ namespace PRA_B4_FOTOKIOSK.controller
     {
         public static Home Window { get; set; }
 
+        public PictureController(Home window)
+        {
+            Window = window;
+        }
+
         public List<KioskPhoto> PicturesToDisplay = new List<KioskPhoto>();
 
         public void Start()

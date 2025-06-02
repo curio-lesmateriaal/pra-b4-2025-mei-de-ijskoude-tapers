@@ -12,6 +12,11 @@ namespace PRA_B4_FOTOKIOSK.controller
     {
         public static Home Window { get; set; }
 
+        public ShopController(Home window)
+        {
+            Window = window;
+        }
+
         public void Start()
         {
             // Vul de productlijst met producten
