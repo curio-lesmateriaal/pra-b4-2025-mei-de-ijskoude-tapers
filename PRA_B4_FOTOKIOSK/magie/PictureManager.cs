@@ -19,49 +19,22 @@ namespace PRA_B4_FOTOKIOSK.magie
 
             // Sorteer foto's op tijd
             var sorted = picturesToDisplay.OrderBy(p => p.Tijd).ToList();
-            var gebruikt = new HashSet<KioskPhoto>();
 
-            for (int i = 0; i < sorted.Count; i++)
+            // Voeg alle foto's rechtstreeks toe aan WrapPanel (4 per rij door width)
+            foreach (var foto in sorted)
             {
-                var foto1 = sorted[i];
-
-                if (gebruikt.Contains(foto1))
-                    continue;
-
-                // Zoek een foto die precies 60 seconden later is
-                KioskPhoto foto2 = sorted.FirstOrDefault(f =>
-                    !gebruikt.Contains(f) &&
-                    Math.Abs((f.Tijd - foto1.Tijd).TotalSeconds - 60) < 0.5); // kleine speling
-
-                // Maak rij
-                StackPanel rij = new StackPanel
-                {
-                    Orientation = Orientation.Horizontal,
-                    Margin = new Thickness(10)
-                };
-
-                rij.Children.Add(CreateImage(foto1));
-                gebruikt.Add(foto1);
-
-                if (foto2 != null)
-                {
-                    rij.Children.Add(CreateImage(foto2));
-                    gebruikt.Add(foto2);
-                }
-
-                Instance.spPictures.Children.Add(rij);
+                Instance.spPictures.Children.Add(CreateImage(foto));
             }
         }
-
 
         private static Image CreateImage(KioskPhoto photo)
         {
             Image image = new Image
             {
                 Source = PathToImage(photo.Source),
-                Width = 1920 / 4,
-                Height = 1080 / 4,
-                Margin = new Thickness(5)
+                Width = 1920 / 4 - 30, // ongeveer 4 foto's per rij, met marge
+                Height = 1080 / 4 - 30,
+                Margin = new Thickness(10)
             };
             return image;
         }

@@ -24,7 +24,7 @@ namespace PRA_B4_FOTOKIOSK.controller
             PicturesToDisplay.Clear();
 
             DateTime nu = DateTime.Now;
-            DateTime ondergrens = nu.AddMinutes(-500); // Voor test, evt -30 bij oplevering
+            DateTime ondergrens = nu.AddMinutes(-30); // Voor test, evt -30 bij oplevering
             DateTime bovengrens = nu.AddMinutes(-2);
 
             List<KioskPhoto> alleFotos = new();

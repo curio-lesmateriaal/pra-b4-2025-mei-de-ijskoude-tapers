@@ -5,14 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PRA_B4_FOTOKIOSK"
         mc:Ignorable="d"
-        Title="Home" Height="1080" Width="1920" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" WindowState="Maximized">
-    <Grid>
+        Title="Home"
+        Height="1080"
+        Width="1920"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized">
+	<Grid>
         <TabControl>
 
             <TabItem Header="Foto's">
                 <Grid>
                     <ScrollViewer Margin="10,38,10,43">
-                        <WrapPanel x:Name="spPictures">
+                        <WrapPanel x:Name="spPictures" Orientation="Horizontal">
                         </WrapPanel>
                     </ScrollViewer>
                     <Button x:Name="btnRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="10,998,0,0" VerticalAlignment="Top" Width="83" Height="28" Click="btnRefresh_Click"/>
