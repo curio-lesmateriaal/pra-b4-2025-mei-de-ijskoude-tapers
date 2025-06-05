@@ -15,11 +15,14 @@
 
             <TabItem Header="Foto's">
                 <Grid>
-                    <ScrollViewer Margin="10,38,10,43">
-                        <WrapPanel x:Name="spPictures" Orientation="Horizontal">
-                        </WrapPanel>
+                    <ScrollViewer Margin="10,38,10,43" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                        <WrapPanel
+                x:Name="spPictures"
+                Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                />
                     </ScrollViewer>
-                    <Button x:Name="btnRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="10,998,0,0" VerticalAlignment="Top" Width="83" Height="28" Click="btnRefresh_Click"/>
+                    <Button x:Name="btnRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="20,890,0,0" VerticalAlignment="Top" Width="83" Height="28" Click="btnRefresh_Click"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Kassa">
